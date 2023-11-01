@@ -48,8 +48,6 @@ export default {
     0x37: 'Digit7',
     0x38: 'Digit8',
     0x39: 'Digit9',
-    0x5b: 'MetaLeft',
-    0x5c: 'MetaRight',
     0x5d: 'ContextMenu',
     0x5f: 'Sleep',
     0x60: 'Numpad0',
