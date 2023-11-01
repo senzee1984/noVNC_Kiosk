@@ -31,8 +31,6 @@ export default {
     'ControlLeft':      'Control',
     'ControlRight':     'Control',
     'Enter':            'Enter',
-    'MetaLeft':         'Meta',
-    'MetaRight':        'Meta',
     'ShiftLeft':        'Shift',
     'ShiftRight':       'Shift',
     'Tab':              'Tab',
