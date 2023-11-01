@@ -195,8 +195,6 @@ export default {
     XK_Caps_Lock:                   0xffe5, /* Caps lock */
     XK_Shift_Lock:                  0xffe6, /* Shift lock */
 
-    XK_Meta_L:                      0xffe7, /* Left meta */
-    XK_Meta_R:                      0xffe8, /* Right meta */
     XK_Alt_L:                       0xffe9, /* Left alt */
     XK_Alt_R:                       0xffea, /* Right alt */
     XK_Super_L:                     0xffeb, /* Left super */
