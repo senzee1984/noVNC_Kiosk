@@ -419,7 +419,6 @@ const UI = {
             UI.enableSetting('port');
             UI.enableSetting('path');
             UI.enableSetting('repeaterID');
-            UI.updatePowerButton();
             UI.keepControlbar();
         }
 
@@ -811,7 +810,6 @@ const UI = {
 
     closeAllPanels() {
         UI.closeSettingsPanel();
-        UI.closePowerPanel();
         UI.closeClipboardPanel();
     },
 
@@ -864,52 +862,7 @@ const UI = {
 /* ------^-------
  *   /SETTINGS
  * ==============
- *     POWER
- * ------v------*/
 
-    openPowerPanel() {
-        UI.closeAllPanels();
-        UI.openControlbar();
-
-        document.getElementById('noVNC_power')
-            .classList.add("noVNC_open");
-        document.getElementById('noVNC_power_button')
-            .classList.add("noVNC_selected");
-    },
-
-    closePowerPanel() {
-        document.getElementById('noVNC_power')
-            .classList.remove("noVNC_open");
-        document.getElementById('noVNC_power_button')
-            .classList.remove("noVNC_selected");
-    },
-
-    togglePowerPanel() {
-        if (document.getElementById('noVNC_power')
-            .classList.contains("noVNC_open")) {
-            UI.closePowerPanel();
-        } else {
-            UI.openPowerPanel();
-        }
-    },
-
-    // Disable/enable power button
-    updatePowerButton() {
-        if (UI.connected &&
-            UI.rfb.capabilities.power &&
-            !UI.rfb.viewOnly) {
-            document.getElementById('noVNC_power_button')
-                .classList.remove("noVNC_hidden");
-        } else {
-            document.getElementById('noVNC_power_button')
-                .classList.add("noVNC_hidden");
-            // Close power panel if open
-            UI.closePowerPanel();
-        }
-    },
-
-/* ------^-------
- *    /POWER
  * ==============
  *   CLIPBOARD
  * ------v------*/
@@ -1021,7 +974,6 @@ const UI = {
         UI.rfb.addEventListener("credentialsrequired", UI.credentials);
         UI.rfb.addEventListener("securityfailure", UI.securityFailed);
         UI.rfb.addEventListener("clippingviewport", UI.updateViewDrag);
-        UI.rfb.addEventListener("capabilities", UI.updatePowerButton);
         UI.rfb.addEventListener("clipboard", UI.clipboardReceive);
         UI.rfb.addEventListener("bell", UI.bell);
         UI.rfb.addEventListener("desktopname", UI.updateDesktopName);
