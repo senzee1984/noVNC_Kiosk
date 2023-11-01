@@ -11,25 +11,12 @@ export function getKeycode(evt) {
     // (unfortunately Firefox and Chrome are crappy here and gives
     // us an empty string on some platforms, rather than leaving it
     // undefined)
-    if (evt.code) {
-        // Mozilla isn't fully in sync with the spec yet
-        switch (evt.code) {
-            case 'OSLeft': return 'MetaLeft';
-            case 'OSRight': return 'MetaRight';
-        }
-
-        return evt.code;
-    }
 
     // The de-facto standard is to use Windows Virtual-Key codes
     // in the 'keyCode' field for non-printable characters
     if (evt.keyCode in vkeys) {
         let code = vkeys[evt.keyCode];
 
-        // macOS has messed up this code for some reason
-        if (browser.isMac() && (code === 'ContextMenu')) {
-            code = 'MetaRight';
-        }
 
         // The keyCode doesn't distinguish between left and right
         // for the standard modifiers
@@ -70,7 +57,6 @@ export function getKey(evt) {
     if (evt.key !== undefined) {
         // Mozilla isn't fully in sync with the spec yet
         switch (evt.key) {
-            case 'OS': return 'Meta';
             case 'LaunchMyComputer': return 'LaunchApplication1';
             case 'LaunchCalculator': return 'LaunchApplication2';
         }
@@ -119,10 +105,6 @@ export function getKeysym(evt) {
     if (key in DOMKeyTable) {
         let location = evt.location;
 
-        // Safari screws up location for the right cmd key
-        if ((key === 'Meta') && (location === 0)) {
-            location = 2;
-        }
 
         // And for Clear
         if ((key === 'Clear') && (location === 3)) {
@@ -136,17 +118,7 @@ export function getKeysym(evt) {
             location = 0;
         }
 
-        // The original Meta key now gets confused with the Windows key
-        // https://bugs.chromium.org/p/chromium/issues/detail?id=1020141
-        // https://bugzilla.mozilla.org/show_bug.cgi?id=1232918
-        if (key === 'Meta') {
-            let code = getKeycode(evt);
-            if (code === 'AltLeft') {
-                return KeyTable.XK_Meta_L;
-            } else if (code === 'AltRight') {
-                return KeyTable.XK_Meta_R;
-            }
-        }
+
 
         // macOS has Clear instead of NumLock, but the remote system is
         // probably not macOS, so lying here is probably best...
