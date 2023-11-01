@@ -103,7 +103,7 @@ const UI = {
         // Setup event handlers
         UI.addControlbarHandlers();
         UI.addTouchSpecificHandlers();
-        UI.addExtraKeysHandlers();
+     //   UI.addExtraKeysHandlers();
         UI.addMachineHandlers();
         UI.addConnectionControlHandlers();
         UI.addClipboardHandlers();
@@ -288,33 +288,33 @@ const UI = {
             .addEventListener('touchmove', UI.dragControlbarHandle);
     },
 
-    addExtraKeysHandlers() {
-        document.getElementById("noVNC_toggle_extra_keys_button")
-            .addEventListener('click', UI.toggleExtraKeys);
-        document.getElementById("noVNC_toggle_ctrl_button")
-            .addEventListener('click', UI.toggleCtrl);
-        document.getElementById("noVNC_toggle_windows_button")
-            .addEventListener('click', UI.toggleWindows);
-        document.getElementById("noVNC_toggle_alt_button")
-            .addEventListener('click', UI.toggleAlt);
-        document.getElementById("noVNC_send_tab_button")
-            .addEventListener('click', UI.sendTab);
-        document.getElementById("noVNC_send_esc_button")
-            .addEventListener('click', UI.sendEsc);
-        document.getElementById("noVNC_send_ctrl_alt_del_button")
-            .addEventListener('click', UI.sendCtrlAltDel);
-    },
+  //  addExtraKeysHandlers() {
+  //      document.getElementById("noVNC_toggle_extra_keys_button")
+  //          .addEventListener('click', UI.toggleExtraKeys);
+ //       document.getElementById("noVNC_toggle_ctrl_button")
+  //          .addEventListener('click', UI.toggleCtrl);
+   //     document.getElementById("noVNC_toggle_windows_button")
+   //         .addEventListener('click', UI.toggleWindows);
+  //      document.getElementById("noVNC_toggle_alt_button")
+   //         .addEventListener('click', UI.toggleAlt);
+  //      document.getElementById("noVNC_send_tab_button")
+   //         .addEventListener('click', UI.sendTab);
+   //     document.getElementById("noVNC_send_esc_button")
+   //         .addEventListener('click', UI.sendEsc);
+   //     document.getElementById("noVNC_send_ctrl_alt_del_button")
+   //         .addEventListener('click', UI.sendCtrlAltDel);
+   // },
 
-    addMachineHandlers() {
-        document.getElementById("noVNC_shutdown_button")
-            .addEventListener('click', () => UI.rfb.machineShutdown());
-        document.getElementById("noVNC_reboot_button")
-            .addEventListener('click', () => UI.rfb.machineReboot());
-        document.getElementById("noVNC_reset_button")
-            .addEventListener('click', () => UI.rfb.machineReset());
-        document.getElementById("noVNC_power_button")
-            .addEventListener('click', UI.togglePowerPanel);
-    },
+  //  addMachineHandlers() {
+  //      document.getElementById("noVNC_shutdown_button")
+ //           .addEventListener('click', () => UI.rfb.machineShutdown());
+ //       document.getElementById("noVNC_reboot_button")
+ //           .addEventListener('click', () => UI.rfb.machineReboot());
+ //       document.getElementById("noVNC_reset_button")
+ //           .addEventListener('click', () => UI.rfb.machineReset());
+   //     document.getElementById("noVNC_power_button")
+   //         .addEventListener('click', UI.togglePowerPanel);
+ //   },
 
     addConnectionControlHandlers() {
         document.getElementById("noVNC_disconnect_button")
@@ -842,7 +842,7 @@ const UI = {
         UI.closeSettingsPanel();
         UI.closePowerPanel();
         UI.closeClipboardPanel();
-        UI.closeExtraKeys();
+//        UI.closeExtraKeys();
     },
 
 /* ------^-------
@@ -1700,15 +1700,15 @@ const UI = {
         if (UI.rfb.viewOnly) {
             document.getElementById('noVNC_keyboard_button')
                 .classList.add('noVNC_hidden');
-            document.getElementById('noVNC_toggle_extra_keys_button')
-                .classList.add('noVNC_hidden');
+    //        document.getElementById('noVNC_toggle_extra_keys_button')
+   //             .classList.add('noVNC_hidden');
             document.getElementById('noVNC_clipboard_button')
                 .classList.add('noVNC_hidden');
         } else {
             document.getElementById('noVNC_keyboard_button')
                 .classList.remove('noVNC_hidden');
-            document.getElementById('noVNC_toggle_extra_keys_button')
-                .classList.remove('noVNC_hidden');
+   //         document.getElementById('noVNC_toggle_extra_keys_button')
+    //            .classList.remove('noVNC_hidden');
             document.getElementById('noVNC_clipboard_button')
                 .classList.remove('noVNC_hidden');
         }
