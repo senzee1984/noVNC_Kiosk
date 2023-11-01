@@ -43,7 +43,6 @@ addStandard("CapsLock", KeyTable.XK_Caps_Lock);
 addLeftRight("Control", KeyTable.XK_Control_L, KeyTable.XK_Control_R);
 // - Fn
 // - FnLock
-addLeftRight("Meta", KeyTable.XK_Super_L, KeyTable.XK_Super_R);
 addStandard("NumLock", KeyTable.XK_Num_Lock);
 addStandard("ScrollLock", KeyTable.XK_Scroll_Lock);
 addLeftRight("Shift", KeyTable.XK_Shift_L, KeyTable.XK_Shift_R);
