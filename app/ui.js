@@ -1508,12 +1508,6 @@ const UI = {
         }
     },
 
-    sendCtrlAltDel() {
-        UI.rfb.sendCtrlAltDel();
-        // See below
-        UI.rfb.focus();
-        UI.idleControlbar();
-    },
 
     sendKey(keysym, code, down) {
         UI.rfb.sendKey(keysym, code, down);
