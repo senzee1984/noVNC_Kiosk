@@ -432,29 +432,6 @@ export default class RFB extends EventTargetMixin {
         this._resumeAuthentication();
     }
 
-    sendCtrlAltDel() {
-        if (this._rfbConnectionState !== 'connected' || this._viewOnly) { return; }
-        Log.Info("Sending Ctrl-Alt-Del");
-
-        this.sendKey(KeyTable.XK_Control_L, "ControlLeft", true);
-        this.sendKey(KeyTable.XK_Alt_L, "AltLeft", true);
-        this.sendKey(KeyTable.XK_Delete, "Delete", true);
-        this.sendKey(KeyTable.XK_Delete, "Delete", false);
-        this.sendKey(KeyTable.XK_Alt_L, "AltLeft", false);
-        this.sendKey(KeyTable.XK_Control_L, "ControlLeft", false);
-    }
-
-    machineShutdown() {
-        this._xvpOp(1, 2);
-    }
-
-    machineReboot() {
-        this._xvpOp(1, 3);
-    }
-
-    machineReset() {
-        this._xvpOp(1, 4);
-    }
 
     // Send a key press. If 'down' is not specified then send a down key
     // followed by an up key.
